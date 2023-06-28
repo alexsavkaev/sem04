@@ -16,20 +16,15 @@ public class Main {
                 String result = fio[2] + " " + fio[0].toUpperCase().charAt(0)
                         + "." + fio[1].toUpperCase().charAt(0)+"." + tmp[1] + " " + tmp[2];
                 people.add(result);
-                for (int i = 0; i < people.size(); i++) {
-                    System.out.println(people.get(i));
+                for (String person : people) {
+                    System.out.println(person);
                 }
             }
             if(Objects.equals(data, "s"))
                 System.out.println("Сортировка...");
-                people.sort(new Comparator<String>() {
-                    @Override
-                    public int compare(String o1, String o2) {
-                        return Integer.parseInt(o1.split(" ")[2])-Integer.parseInt(o2.split(" ")[2]);
-                    }
-                });
-            for (int i = 0; i < people.size(); i++) {
-                System.out.println(people.get(i));
+                people.sort((o1, o2) -> Integer.parseInt(o1.split(" ")[2])-Integer.parseInt(o2.split(" ")[2]));
+            for (String person : people) {
+                System.out.println(person);
             }
 
         }
